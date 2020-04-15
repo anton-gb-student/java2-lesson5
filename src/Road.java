@@ -6,7 +6,7 @@ public class Road extends Stage {
         super(length, description);
     }
 
-    public Road(int length, String description, int carsCount) {
+    public Road(int length, String description, int carsCount) {  // Второй конструктор для стартового участка
         super(length, description);
         this.startPrepare = new CyclicBarrier(carsCount);
     }

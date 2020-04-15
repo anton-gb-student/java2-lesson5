@@ -1,10 +1,9 @@
 import java.util.ArrayList;
-import java.util.concurrent.CyclicBarrier;
 
 public class Race {
-    volatile int place = 1;
-    private ArrayList<Stage> stages;
-    int carsCount;
+    volatile int place = 1;           // Какое место займет участник
+    private ArrayList<Stage> stages;  // Этапы гонки
+    int carsCount;                    // Количество машин
 
     public Race(ArrayList<Stage> stages, int carsCount) {
         this.stages = stages;
