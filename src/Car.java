@@ -32,6 +32,7 @@ public class Car implements Runnable {
         System.out.println("В гонку вступает участник № " + number + ". Подготовка...");
         try {
             Thread.sleep(500 + (int)(Math.random() * 800));
+            System.out.println("Speed # " + number + " = " + speed);
 
             for (int i = 0; i < race.getStages().size(); i++) {
                 CyclicBarrier start = race.getStages().get(i).getStartPrepare();
@@ -39,7 +40,10 @@ public class Car implements Runnable {
                     start.await();
                 }
                 Semaphore tunnel = race.getStages().get(i).getSemaphore();
-
+                if (tunnel != null) {
+                    System.out.println("Участник № " + number + " ожидает " + race.getStages().get(i).getDescription());
+                    tunnel.acquire();
+                }
                 System.out.println("Участник № " + number + " начинает " + race.getStages().get(i).getDescription());
                 Thread.sleep(1000 * race.getStages().get(0).getLength() / speed);
                 System.out.println("          Участник № " + number + " завершил " + race.getStages().get(i).getDescription());
