@@ -4,8 +4,8 @@ import java.util.concurrent.Semaphore;
 public class Stage {
     private int length;
     private String description;
-    Semaphore semaphore = null;
-    CyclicBarrier startPrepare = null;
+    Semaphore semaphore = null;          // Семафор для туннелей
+    CyclicBarrier startPrepare = null;   // Барьер для стартового этапа
 
     public Stage(int length, String description) {
         this.length = length;

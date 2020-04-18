@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Starting {
     public static void main(String[] args) {
+        // Готовим трассу
         ArrayList<Stage> stages = new ArrayList<>();
         Race myRace = new Race (stages, 7);
         Stage level1 = new Road(80,"стартовый этап", myRace.carsCount);
@@ -15,6 +16,7 @@ public class Starting {
         stages.add(level4);
         stages.add(level5);
 
+        // Добавляем участников и стартуем
         for (int i = 0; i < myRace.carsCount; i++) {
             new Thread(new Car(20,myRace)).start();
         }
